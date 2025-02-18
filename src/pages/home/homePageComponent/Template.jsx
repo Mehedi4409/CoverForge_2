@@ -5,9 +5,9 @@ import group from "../../../../public/assets/group.png";
 
 const Template = () => {
     return (
-        <div>
+        <div className='min-h-screen'>
             <p className='text-center py-4 font-bold text-3xl font-family-anton text-black dark:text-white'>Select a Template</p>
-            <div className='flex flex-col md:flex-row justify-center gap-4'>
+            <div className='flex flex-col md:flex-row justify-center items-center flex-wrap gap-4'>
                 <img className='size-96' src={left} alt="" />
                 <img className='size-96' src={middle} alt="" />
                 <img className='size-96' src={group} alt="" />

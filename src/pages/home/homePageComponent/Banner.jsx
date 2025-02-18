@@ -11,7 +11,7 @@ const Banner = () => {
             
             {/* main text */}
             <div className='flex-1 w-full flex flex-col items-center justify-center'>
-                <p className='font-medium text-xl'>Hi There 👋, Welcome to</p>
+                <p className='font-medium text-xl'>Hi There <span className='animate-wiggle text-3xl'>👋</span>, Welcome to</p>
                 <p className='text-6xl lg:text-[200px]  mt-2 font-family-anton'>COVERFORGE<span className='text-xl font-sans font-semibold'> 2.0</span></p>
                 <p className='w-4/5 md:w-1/3 text-sm mt-2 text-center'>Your simple and efficient tool for creating clean assignment covers on the go. Let's get started!</p>
             </div>
