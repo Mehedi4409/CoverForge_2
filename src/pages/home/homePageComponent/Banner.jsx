@@ -5,7 +5,7 @@ const Banner = () => {
         <div className='flex flex-col dark:bg-black w-full h-screen text-black dark:text-white'>
             {/* nav */}
             <div className='flex-none flex items-center justify-between px-12 py-8'>
-                <div>
+                <div className='flex flex-row gap-1'>
                     <p className="text-lg md:text-xl font-bold mr-1">COVERFORGE</p>
                     <details className="dropdown">
                         <summary className="btn btn-sm m-1">v2.0</summary>
