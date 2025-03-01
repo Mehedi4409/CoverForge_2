@@ -5,9 +5,9 @@ function App() {
 
   return (
     <>
-      
+
       <Outlet></Outlet>
-      
+
     </>
   )
 }

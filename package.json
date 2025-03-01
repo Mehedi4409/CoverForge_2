@@ -10,13 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^4.2.2",
     "@tailwindcss/vite": "^4.0.6",
     "by": "^0.2.3",
     "localforage": "^1.10.0",
     "match-sorter": "^8.0.0",
+    "pikaday": "^1.8.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.5",
+    "react-to-pdf": "^1.0.1",
     "sort": "^0.0.3",
     "tailwindcss": "^4.0.6"
   },

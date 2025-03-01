@@ -2,13 +2,22 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className='flex flex-col bg-white dark:bg-black w-full h-screen text-black dark:text-white'>
+        <div className='flex flex-col dark:bg-black w-full h-screen text-black dark:text-white'>
             {/* nav */}
             <div className='flex-none flex items-center justify-between px-12 py-8'>
-                <p className='text-2xl font-bold font-family-anton'>CF</p>
+                <div>
+                    <a className="text-lg md:text-xl font-bold mr-1">COVERFORGE</a>
+                    <details className="dropdown">
+                        <summary className="btn btn-sm m-1">v2.0</summary>
+                        <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-24 p-2 shadow-sm">
+                            <li><a href='https://cover-forge.vercel.app/'>v1.0</a></li>
+                            <li><a href='https://cover-forge-2.vercel.app/'>v2.0</a></li>
+                        </ul>
+                    </details>
+                </div>
                 <p className='text-[12px]'>@Project By Mehedi</p>
             </div>
-            
+
             {/* main text */}
             <div className='flex-1 w-full flex flex-col items-center justify-center'>
                 <p className='font-medium text-xl'>Hi There <span className='animate-wiggle text-3xl'>👋</span>, Welcome to</p>
