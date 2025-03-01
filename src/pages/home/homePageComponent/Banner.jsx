@@ -6,7 +6,7 @@ const Banner = () => {
             {/* nav */}
             <div className='flex-none flex items-center justify-between px-12 py-8'>
                 <div>
-                    <a className="text-lg md:text-xl font-bold mr-1">COVERFORGE</a>
+                    <p className="text-lg md:text-xl font-bold mr-1">COVERFORGE</p>
                     <details className="dropdown">
                         <summary className="btn btn-sm m-1">v2.0</summary>
                         <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-24 p-2 shadow-sm">
