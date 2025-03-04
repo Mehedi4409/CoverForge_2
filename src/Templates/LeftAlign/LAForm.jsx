@@ -1,13 +1,13 @@
 import logo from "../../assets/logo.png"
 import AssignmentName from "../../component/FormComponent/AssignmentName";
-import SubmissionDate from "../../component/FormComponent/SubmissionDate";
 import SubmittedBy from "../../component/FormComponent/SubmittedBy";
 import SubmittedTo from "../../component/FormComponent/SubmittedTo";
+import SubmissionDate from "../../component/FormComponent/SubmissionDate";
 const LAForm = () => {
 
-    const handleUpdate = data =>{
-        console.log("data passed!!!");
-    }
+    // const handleUpdate = data =>{
+    //     console.log("data passed!!!");
+    // }
 
 
     return (
@@ -28,7 +28,7 @@ const LAForm = () => {
 
                 <form>
                     <AssignmentName></AssignmentName>
-                    <SubmittedTo onUpdate={handleUpdate}></SubmittedTo>
+                    <SubmittedTo></SubmittedTo>
                     <SubmittedBy></SubmittedBy>
                     <SubmissionDate></SubmissionDate>
 

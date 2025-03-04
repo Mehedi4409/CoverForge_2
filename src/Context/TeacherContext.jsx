@@ -28,10 +28,10 @@ export const TeacherProvider = ({ children }) => {
     const handleInputChange = (value) => { //autocomplete logic
         setInputValue(value);
         if (value.length > 0) {
+            // TeacherContext.js (improved filter)
             const filtered = teachersdata.filter(t =>
-                t.name.toLowerCase().includes(value.toLowerCase())
-
-            )
+                t.name.toLowerCase().startsWith(value.toLowerCase())
+            );
             console.log('Filtered results:', filtered.length); // Check if this shows results
             setSuggestions(filtered);
         } else {
@@ -41,15 +41,13 @@ export const TeacherProvider = ({ children }) => {
 
     //teacher selection 
     const selectTeacher = (teacher) => {
-        setSelectedTeacher(teacher);
-        setInputValue(teacher.name);
-        setSuggestions([])
-
-        if (!teacher) {
-            setInputValue("");
+        setSelectedTeacher((prev) => ({ ...prev, ...teacher }));  // Merge new values
+        if (teacher.name) {
+            setInputValue(teacher.name); // Ensure input field updates
         }
+        setSuggestions([]);
+    };
 
-    }
 
     return (
         <TeacherContext.Provider value={{ selectTeacher, selectedTeacher, inputValue, suggestions, handleInputChange }}>

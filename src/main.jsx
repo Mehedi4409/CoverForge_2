@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './pages/home/HomePage.jsx'
 import LAForm from './Templates/LeftAlign/LAForm.jsx'
 import { TeacherProvider } from './Context/TeacherContext.jsx'
+import Lform from './Templates/LeftAlign/Lform.jsx'
 
 
 
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/lacoverform",
-        element: <LAForm></LAForm>
+        element: <Lform></Lform>
       },
     ]
 

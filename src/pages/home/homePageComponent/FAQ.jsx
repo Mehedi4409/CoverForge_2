@@ -38,7 +38,7 @@ const FAQItem = ({ question, answer }) => (
 const FAQ = () => {
     return (
         <div className="space-y-2 md:w-2/3">
-            <h2 className='py-4 text-center font-family-anton font-bold text-3xl mt-4'>Frequently Asked Questions</h2>
+            <h2 className='py-4 text-center text-black font-family-anton font-bold text-3xl mt-4'>Frequently Asked Questions</h2>
             {faqs.map((faq, index) => (
                 <FAQItem key={index} {...faq} />
             ))}
