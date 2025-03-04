@@ -25,19 +25,33 @@ export const TeacherProvider = ({ children }) => {
 
     // console.log("taecher data",teachersdata.length);
 
-    const handleInputChange = (value) => { //autocomplete logic
+    const handleInputChange = (value) => { //advance search system
         setInputValue(value);
         if (value.length > 0) {
-            // TeacherContext.js (improved filter)
-            const filtered = teachersdata.filter(t =>
-                t.name.toLowerCase().startsWith(value.toLowerCase())
-            );
-            console.log('Filtered results:', filtered.length); // Check if this shows results
+            const searchTerm = value.toLowerCase().trim();
+            // Split the name into parts and check each word
+            const filtered = teachersdata.filter(teacher => {
+                const nameParts = teacher.name.toLowerCase().split(/\s+/); // Split on spaces
+                return nameParts.some(part => part.startsWith(searchTerm));
+            });
             setSuggestions(filtered);
         } else {
             setSuggestions([]);
         }
     };
+    // const handleInputChange = (value) => { //basic search system
+    //     setInputValue(value);
+    //     if (value.length > 0) {
+    //         // TeacherContext.js (improved filter)
+    //         const filtered = teachersdata.filter(t =>
+    //             t.name.toLowerCase().startsWith(value.toLowerCase())
+    //         );
+    //         console.log('Filtered results:', filtered.length); // Check if this shows results
+    //         setSuggestions(filtered);
+    //     } else {
+    //         setSuggestions([]);
+    //     }
+    // };
 
     //teacher selection 
     const selectTeacher = (teacher) => {

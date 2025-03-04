@@ -7,13 +7,14 @@ import HomePage from './pages/home/HomePage.jsx'
 import LAForm from './Templates/LeftAlign/LAForm.jsx'
 import { TeacherProvider } from './Context/TeacherContext.jsx'
 import Lform from './Templates/LeftAlign/Lform.jsx'
+import { FormContext, FormProvider } from './Context/FormProvider.jsx'
 
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <TeacherProvider><App></App></TeacherProvider>,
+    element: <FormProvider><TeacherProvider><App></App></TeacherProvider></FormProvider>,
     children: [
       {
         path: "/",
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
 
-    <RouterProvider router={router} />
+
+
+      <RouterProvider router={router} />
+
+
 
   </StrictMode>,
 )

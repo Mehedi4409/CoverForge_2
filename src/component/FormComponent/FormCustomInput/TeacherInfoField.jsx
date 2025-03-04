@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useTeacherContext } from '../../../Context/TeacherContext';
+import { FormContext } from '../../../Context/FormProvider';
 // import { useTeacherContext } from '../../../Context/TeacherContext';
 
 const TeacherInfoField = ({ label, field, placeholder }) => {
     const { selectedTeacher, selectTeacher } = useTeacherContext();
+    const { formData, updateFormData } = useContext(FormContext)
+
+    const value = selectedTeacher?.[field] || formData[field] || "";
 
     const handleChange = (e) => {
         const updatedTeacher = {
@@ -11,6 +15,11 @@ const TeacherInfoField = ({ label, field, placeholder }) => {
             [field]: e.target.value
         };
         selectTeacher(updatedTeacher);
+        // updateFormData(field, e.target.value);
+        // updateFormData(field, e.target.value);
+        // console.log("updated teacher", updatedTeacher);
+        // console.log("updated name", updatedTeacher.name);
+        // console.log("updated designation", updatedTeacher.designation);
     };
 
     return (
@@ -24,7 +33,7 @@ const TeacherInfoField = ({ label, field, placeholder }) => {
             <div className='sm:col-span-3'>
                 <input
                     type="text"
-                    value={selectedTeacher?.[field] || ""}
+                    value={value}
                     onChange={handleChange}
                     placeholder={placeholder}
                     className="input bg-transparent input-bordered w-full mb-2"

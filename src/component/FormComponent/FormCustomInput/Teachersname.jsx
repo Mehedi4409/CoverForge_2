@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useTeacherContext } from '../../../Context/TeacherContext';
+import { FormContext } from '../../../Context/FormProvider';
+import { name } from 'by';
 
 
-const Teachersname = ({label}) => {
+const Teachersname = ({ label }) => {
     const { selectTeacher, selectedTeacher, inputValue, suggestions, handleInputChange } = useTeacherContext();
     const [highlightedIndex, setHighlightedIndex] = useState(-1);
+    const { formData, updateFormData } = useContext(FormContext)
 
     const handleKeyDown = (e) => {
         if (suggestions.length === 0) return;
@@ -14,10 +17,34 @@ const Teachersname = ({label}) => {
         } else if (e.key === "ArrowUp") {
             setHighlightedIndex((prev) => (prev - 1 + suggestions.length) % suggestions.length); // Move up
         } else if (e.key === "Enter" && highlightedIndex >= 0) {
-            selectTeacher(suggestions[highlightedIndex]); // Select highlighted teacher
+            // selectTeacher(suggestions[highlightedIndex]);
+            const selected = suggestions[highlightedIndex];
+            selectTeacher(selected);
+            updateFormData('teacherName', selected.name);
+            updateFormData('designation', selected.designation); 
+            updateFormData('department', selected.department);
         }
     };
+    const handleInputChangeAndForm = (value) => {
+        handleInputChange(value);
 
+        updateFormData('teacherName', value)
+    }
+    const handleTeacherSelect = (teacher) => {
+        selectTeacher(teacher);
+        updateFormData('teacherName', teacher.name);
+        updateFormData('designation', teacher.designation); 
+        updateFormData('department', teacher.department);
+        console.log(teacher);
+
+    }
+
+    // console.log("formdata ", formData);
+    // console.log("selected ", selectedTeacher);
+    // console.log("select ", selectTeacher);
+
+
+    // console.log(selectedTeacher);
 
     return (
 
@@ -33,7 +60,7 @@ const Teachersname = ({label}) => {
                     <input
                         type="text"
                         value={inputValue}
-                        onChange={(e) => handleInputChange(e.target.value)}
+                        onChange={(e) => handleInputChangeAndForm(e.target.value)}
                         onKeyDown={handleKeyDown}
                         placeholder="Type teacher's name..."
                         className="input bg-transparent input-bordered w-full"
@@ -46,7 +73,7 @@ const Teachersname = ({label}) => {
                             {suggestions.map((teacher, index) => (
                                 <li
                                     key={teacher.name}
-                                    onClick={() => selectTeacher(teacher)}
+                                    onClick={() => handleTeacherSelect(teacher)}
                                     className={`p-2 cursor-pointer ${index === highlightedIndex ? "bg-gray-200" : "hover:bg-gray-100"
                                         }`}
                                 >

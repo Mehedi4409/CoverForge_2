@@ -21,10 +21,10 @@ const features = [
 
 const FeatureCard = ({ title, description }) => (
     <div className="text-start py-2">
-        <p className="text-4xl font-family-anton  text-black dark:text-gray-300">
+        <p className="text-2xl lg:text-4xl font-family-anton  text-black dark:text-gray-300">
             {description}
         </p>
-        <h2 className="text-md font-semibold  text-gray-700 dark:text-white">
+        <h2 className="text-sm lg:text-md font-semibold  text-gray-700 dark:text-white">
             {title}
         </h2>
 
@@ -33,18 +33,22 @@ const FeatureCard = ({ title, description }) => (
 
 const Why = () => {
     return (
-        <div className="flex flex-row  max-w-[1200px] m-auto justify-center mb-12 gap-6 ">
-            <div className='w-1/5'>
-                <h2 className="text-5xl text-black font-family-anton font-bold  mb-2">
-                    Make every submission count with a cover page that speaks for itself.
+        <div className="flex flex-col lg:flex-row  max-w-[1200px] m-auto justify-center mb-12 gap-6 p-4">
+            <div className='lg:w-1/5'>
+                <h2 className="text-2xl lg:text-5xl text-black font-family-anton font-bold  mb-2">
+                    Create a cover page that makes every submission stand out.
                 </h2>
 
             </div>
-            <div className="flex flex-col w-4/5">
-                <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-                    At CoverForge, we don’t just create covers—we craft first impressions. Our platform ensures your work looks polished, compelling, and uniquely yours. With intuitive customization, high-quality templates, and effortless design tools, CoverForge transforms ordinary documents into visually stunning masterpieces.
+            <div className="flex flex-col lg:w-4/5">
+                <p className="text-[12px] lg:text-lg text-gray-600 dark:text-gray-400 mb-8">
+
+
+                    A well-designed cover page sets the tone for your work. CoverForge makes it easy with intuitive tools, professional templates, and built-in customization—no login required. Whether you're a student or a professional, create polished, standout covers in seconds!
+
+
                 </p>
-                <div className='flex justify-between'>
+                <div className='grid grid-cols-2 md:grid-cols-4'>
                     {features.map((feature, index) => (
                         <FeatureCard key={index} {...feature} />
                     ))}
