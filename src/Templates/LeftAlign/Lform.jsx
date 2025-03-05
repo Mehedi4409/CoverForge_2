@@ -3,8 +3,8 @@ import logo from "../../assets/logo.png"
 import InputField from '../../component/FormComponent/InputField';
 import TeacherInfoField from '../../component/FormComponent/FormCustomInput/TeacherInfoField';
 import Teachersname from '../../component/FormComponent/FormCustomInput/Teachersname';
-// import Calender from '../../component/FormComponent/FormCustomInput/Calender';
 import { FormContext } from '../../Context/FormProvider';
+import { Link } from 'react-router-dom';
 
 
 const Lform = () => {
@@ -64,6 +64,11 @@ const Lform = () => {
                         <pre className="text-xs">{JSON.stringify(formData, null, 2)}</pre>
                     </div> */}
                 </form>
+                <div className='m-auto mt-4'>
+                    
+                    
+                    <Link to="/lapreview"><p className='btn bg-slate-900 text-white'>Proceed 👉</p></Link>
+                </div>
             </div>
         </div>
     );
