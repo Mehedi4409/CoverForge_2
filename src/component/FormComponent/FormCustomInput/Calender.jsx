@@ -11,7 +11,7 @@ const Calender = () => {
     //     return () => picker.destroy(ref={myDatepicker});
     // }, []);
     return (
-        <input type="date" className="input pika-single col-span-3" defaultValue="Pick a date"  />
+        <input type="date" className="input pika-single col-span-3" placeholder="DD-MM-YYYY"  />
     );
 };
 

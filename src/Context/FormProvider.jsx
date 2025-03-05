@@ -12,6 +12,8 @@ export const FormProvider = ({ children }) => {
         department: "",
         studentName: "",
         studentID: "",
+        studentSection: "",
+        studentBatch: "",
         studentDepartment: "",
         submissionDate: "",
     });

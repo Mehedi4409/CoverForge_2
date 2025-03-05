@@ -5,10 +5,15 @@ import TeacherInfoField from '../../component/FormComponent/FormCustomInput/Teac
 import Teachersname from '../../component/FormComponent/FormCustomInput/Teachersname';
 import { FormContext } from '../../Context/FormProvider';
 import { Link } from 'react-router-dom';
+import Dropdown from '../../component/FormComponent/SectionBatchInput';
 
 
 const Lform = () => {
-    const { formData } = useContext(FormContext);
+    const { formData, updateFormData } = useContext(FormContext);
+    const section = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+    // const batch = Array.from({ length: 21 }, (_, i) => (i + 50).toString());
+
+
     const customPaperStyle = {
         width: '100%',
         minHeight: '100%',
@@ -49,13 +54,34 @@ const Lform = () => {
                         <InputField label="Student Name: " name="studentName" placeholder="Type your Name" />
                         <InputField label="Student ID: " name="studentID" placeholder="Type your Student ID" />
                         <InputField label="Department: " name="studentDepartment" placeholder="Type your Department" />
+                        <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 col-span-1 sm:col-span-2 lg:col-span-4'>
+                            <Dropdown
+                                label="Section"
+                                name="studentSection"
+                                options={section}
+                                value={formData.studentSection}
+                                onChange={updateFormData}
+                            />
+
+                            <Dropdown
+                                label="Batch"
+                                name="studentBatch"
+
+                                value={formData.studentBatch}
+                                onChange={updateFormData}
+                                isNumber={true}
+                            />
+                        </div>
+                    </div>
+                    <div className='grid grid-cols-2 gap-4'>
+
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center">
                         {/* <h3 className='font-semibold col-span-1'>Submission Date: </h3> */}
                         {/* <Calender className="col-span-1 sm:col-span-2 lg:col-span-3" /> */}
 
-                        <InputField label="Submission Date: " name="submissionDate"></InputField>
+                        <InputField label="Submission Date: " name="submissionDate" placeholder="DD-MM-YYYY"></InputField>
                     </div>
 
                     {/* debugging with json */}
@@ -65,8 +91,8 @@ const Lform = () => {
                     </div> */}
                 </form>
                 <div className='m-auto mt-4'>
-                    
-                    
+
+
                     <Link to="/lapreview"><p className='btn bg-slate-900 text-white'>Proceed 👉</p></Link>
                 </div>
             </div>

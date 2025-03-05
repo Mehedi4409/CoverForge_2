@@ -21,6 +21,8 @@ const LAPreview = () => {
         department,
         studentName,
         studentID,
+        studentSection,
+        studentBatch,
         studentDepartment,
         submissionDate
     } = formData;
@@ -33,28 +35,48 @@ const LAPreview = () => {
     };
 
     return (
-        <div className="flex h-fit w-screen justify-center items-center my-4">
+        <div className="flex flex-col gap-2 h-fit w-screen justify-center items-center my-4">
+            <nav className='max-w-[210mm] w-full flex justify-between'>
+                <button className="btn btn-soft rounded-lg bg-red-800">Go Back</button>
+                <button className="btn btn-soft">Download</button>
+            </nav>
             <div
-                className="card bg-white text-black shadow-xl mx-auto p-6 border border-black rounded-none"
+                className="card bg-white p-[26mm] text-black shadow-xl mx-auto border border-black rounded-none"
                 style={customPaperStyle}
             >
                 {/* Logo Section */}
-                <figure className="px-10 pt-6">
+                <figure className=" mb-16">
                     <img src={logo} alt="Logo" className="size-40 md:size-50 mx-auto" />
                 </figure>
-                
+
                 {/* Assignment Details Section */}
-                <section className="space-y-4">
-                    <DataRow label="Assignment On" value={assignmentName} />
-                    <DataRow label="Course Name" value={courseName} />
-                    <DataRow label="Course Code" value={courseCode} />
-                    <DataRow label="Teacher Name" value={teacherName} />
-                    <DataRow label="Designation" value={designation} />
-                    <DataRow label="Department" value={department} />
-                    <DataRow label="Student Name" value={studentName} />
-                    <DataRow label="Student ID" value={studentID} />
-                    <DataRow label="Student Department" value={studentDepartment} />
-                    <DataRow label="Submission Date" value={submissionDate} />
+                <section className="space-y-20">
+                    <div>
+                        <DataRow label="Assignment On" value={assignmentName} />
+                        <DataRow label="Course Name" value={courseName} />
+                        <DataRow label="Course Code" value={courseCode} />
+                    </div>
+
+                    <div>
+                        <h2 className='font-bold text-xl mb-4'>Submitted To: </h2>
+                        <DataRow label="Teacher Name" value={teacherName} />
+                        <DataRow label="Designation" value={designation} />
+                        <DataRow label="Department" value={department} />
+                    </div>
+
+                    <div>
+                        <h2 className='font-bold text-xl mb-4'>Submitted By: </h2>
+                        <DataRow label="Student Name" value={studentName} />
+                        <DataRow label="Student ID" value={studentID} />
+                        <DataRow label="Section" value={studentSection} />
+                        <DataRow label="Batch" value={studentBatch} />
+                        <DataRow label="Department" value={studentDepartment} />
+                    </div>
+
+                    <div className=''>
+                        <DataRow label="Submission Date" value={submissionDate} />
+
+                    </div>
                 </section>
             </div>
         </div>
