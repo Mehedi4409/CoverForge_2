@@ -8,6 +8,8 @@ import { TeacherProvider } from './Context/TeacherContext.jsx'
 import Lform from './Templates/LeftAlign/Lform.jsx'
 import { FormContext, FormProvider } from './Context/FormProvider.jsx'
 import LAPreview from './Templates/LeftAlign/LAPreview.jsx'
+// import PDF from './Templates/LeftAlign/PDF.jsx'
+import LAPDF from './Templates/LeftAlign/LAPDF.jsx'
 
 
 
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/lapreview",
         element: <LAPreview></LAPreview>
+      },
+      {
+        path: "/livepreview",
+        element: <LAPDF></LAPDF>
       },
     ]
 

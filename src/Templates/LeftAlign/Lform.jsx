@@ -10,6 +10,7 @@ import Dropdown from '../../component/FormComponent/SectionBatchInput';
 
 const Lform = () => {
     const { formData, updateFormData } = useContext(FormContext);
+    // const {} =formData;
     const section = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
     // const batch = Array.from({ length: 21 }, (_, i) => (i + 50).toString());
 
@@ -21,8 +22,13 @@ const Lform = () => {
         minHeight: '297mm'
     };
 
+    
+
     return (
-        <div className="flex h-fit w-screen justify-center items-center my-4">
+        <div className="flex flex-col h-fit w-screen justify-center items-center my-4">
+            <nav className='max-w-[210mm] w-full flex justify-between mb-4'>
+                <Link to='/'><button className="btn btn-soft rounded-lg bg-red-800">Go Back</button></Link>
+            </nav>
             <div
                 className="card bg-white text-black shadow-xl mx-auto p-6 border border-black rounded-none"
                 style={customPaperStyle}

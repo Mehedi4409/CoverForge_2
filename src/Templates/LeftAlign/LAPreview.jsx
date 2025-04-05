@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { FormContext } from '../../Context/FormProvider';
 import logo from "../../assets/logo.png";
+import { Link } from 'react-router-dom';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import LAPDF from './LAPDF';
 
 // Reusable DataRow component
 const DataRow = ({ label, value }) => (
@@ -37,8 +40,18 @@ const LAPreview = () => {
     return (
         <div className="flex flex-col gap-2 h-fit w-screen justify-center items-center my-4">
             <nav className='max-w-[210mm] w-full flex justify-between'>
-                <button className="btn btn-soft rounded-lg bg-red-800">Go Back</button>
-                <button className="btn btn-soft">Download</button>
+                <Link to='/lacoverform'><button className="btn btn-soft rounded-lg bg-red-800">Go Back</button></Link>
+                <Link to='/livepreview'><button className="btn btn-soft rounded-lg bg-red-800">live</button></Link>
+                <PDFDownloadLink
+                    document={<LAPDF formData={formData} />}
+                    fileName="assignment_cover.pdf"
+                >
+                    {({ loading }) => (
+                        <button className="btn btn-soft" disabled={loading}>
+                            {loading ? 'Generating PDF...' : 'Download'}
+                        </button>
+                    )}
+                </PDFDownloadLink>
             </nav>
             <div
                 className="card bg-white p-[26mm] text-black shadow-xl mx-auto border border-black rounded-none"
@@ -51,21 +64,21 @@ const LAPreview = () => {
 
                 {/* Assignment Details Section */}
                 <section className="space-y-20">
-                    <div>
+                    <div className='space-y-2'>
                         <DataRow label="Assignment On" value={assignmentName} />
                         <DataRow label="Course Name" value={courseName} />
                         <DataRow label="Course Code" value={courseCode} />
                     </div>
 
-                    <div>
-                        <h2 className='font-bold text-xl mb-4'>Submitted To: </h2>
+                    <div className='space-y-2'>
+                        <h2 className='font-bold text-xl mb-2'>Submitted To: </h2>
                         <DataRow label="Teacher Name" value={teacherName} />
                         <DataRow label="Designation" value={designation} />
                         <DataRow label="Department" value={department} />
                     </div>
 
-                    <div>
-                        <h2 className='font-bold text-xl mb-4'>Submitted By: </h2>
+                    <div className='space-y-2'>
+                        <h2 className='font-bold text-xl mb-2'>Submitted By: </h2>
                         <DataRow label="Student Name" value={studentName} />
                         <DataRow label="Student ID" value={studentID} />
                         <DataRow label="Section" value={studentSection} />
